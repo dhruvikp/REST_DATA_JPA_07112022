@@ -21,6 +21,16 @@ public class MovieService {
 		return movies;
 	}
 
+	public List<String> getMovieNamesByDirectorName(String directorName) {
+		List<String> movieNames = new ArrayList<>();
+		List<Movie> movies = movieRepository.findMovieByDirectorName(directorName);
+
+		if (movies != null && movies.size() > 0) {
+			movies.forEach(m -> movieNames.add(m.getName()));
+		}
+		return movieNames;	
+	}
+
 	public void saveMovie(Movie movie) {
 		movieRepository.save(movie);
 	}

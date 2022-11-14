@@ -34,4 +34,9 @@ public class MovieController {
 	public void deleteMovie(@PathVariable("id") Integer id) {
 		movieService.delete(id);
 	}
+	
+	@GetMapping("movies/director/{name}")
+	public List<String> getMoviesByDirectorName(@PathVariable("name") String name) {
+		return movieService.getMovieNamesByDirectorName(name);
+	}
 }
